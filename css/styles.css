@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'DaddyTimeMono';
+  src: url('./fonts/DaddyTimeMonoNerdFontMono-Regular.ttf') format('embedded-opentype'),
+    url('./fonts/DaddyTimeMonoNerdFontMono-Regular.ttf') format('woff2'),
+    url('./fonts/DaddyTimeMonoNerdFontMono-Regular.ttf') format('woff'),
+    url('./fonts/DaddyTimeMonoNerdFontMono-Regular.ttf') format('truetype'),
+    url('./fonts/DaddyTimeMonoNerdFontMono-Regular.ttf') format('svg');
+}
