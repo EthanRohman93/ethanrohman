@@ -10,8 +10,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
-        with:
-          sparse-checkout: .
 
       - name: setup terraform
         uses: hashicorp/setup-terraform@v3
