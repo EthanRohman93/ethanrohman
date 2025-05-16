@@ -71,7 +71,3 @@ resource "aws_instance" "web" {
       Name = "${var.env_prefix}-nginx-server"
   }
 }
-
-output "public_ip" {
-  value = aws_instance.web.public_ip
-}
