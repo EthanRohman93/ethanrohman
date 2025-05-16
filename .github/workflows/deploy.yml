@@ -22,7 +22,7 @@ jobs:
           aws configure set aws_secret_access_key "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
 
       - name: terraform init
-        run: terraform init -chdir=terraform/
+        run: terraform -chdir=terraform init
 
       # - name: terraform plan
         # run: terraform plan
