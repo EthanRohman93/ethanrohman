@@ -75,6 +75,9 @@ jobs:
       - name: terraform init
         run: terraform -chdir=terraform init
 
+      - name: terraform destroy
+        run: terraform -chdir=terraform destroy
+
       - name: terraform plan
         run: terraform -chdir=terraform plan
         env:
