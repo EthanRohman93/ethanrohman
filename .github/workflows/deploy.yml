@@ -28,7 +28,7 @@ jobs:
         with:
           audience: sts.amazonaws.com
           aws-region: us-east-1
-          role-to-assume: arn:aws:iam::533267027805:role/terra
+          role-to-assume: arn:aws:iam::533267027805:role/beast
           output-credentials: true
 
       - name: terraform init
