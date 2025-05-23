@@ -67,21 +67,12 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4.1.0
         with:
           audience: sts.amazonaws.com
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          role-to-assume: arn:aws:iam::533267027805:role/beast
           output-credentials: true
 
       - name: terraform init
         run: terraform -chdir=terraform init
-
-      - name: terraform validate
-        run: |
-          terraform -chdir=terraform fmt -recursive
-          terraform -chdir=terraform validate
-        continue-on-error: false
-
 
       - name: terraform plan
         run: terraform -chdir=terraform plan
@@ -96,15 +87,16 @@ jobs:
           TF_VAR_ethanrohman_key: ${{ secrets.ETHANROHMAN_KEY }}
           TF_VAR_ethanrohman_bundle: ${{ secrets.ETHANROHMAN_BUNDLE }}
 
-      # - name: terraform apply
-        # run: terraform apply -auto-approve
-        # env:
-          # TF_VAR_region: us-east-1
-          # TF_VAR_env_prefix: prod
-          # TF_VAR_instance_type: t2.micro
-          # TF_VAR_ec2_name: ethanrohman
-          # TF_VAR_github_pat: ${{ secrets.PAT }}
-          # TF_VAR_github_repo: EthanRohman93/ethanrohman
-          # TF_VAR_ethanrohman_crt: ${{ secrets.ETHANROHMAN_CRT }}
-          # TF_VAR_ethanrohman_key: ${{ secrets.ETHANROHMAN_KEY }}
-          # TF_VAR_ethanrohman_bundle: ${{ secrets.ETHANROHMAN_BUNDLE }}
+      - name: terraform apply
+        run: terraform apply -auto-approve
+        env:
+          TF_VAR_region: us-east-1
+          TF_VAR_env_prefix: prod
+          TF_VAR_instance_type: t2.micro
+          TF_VAR_ec2_name: ethanrohman
+          TF_VAR_github_pat: ${{ secrets.PAT }}
+          TF_VAR_github_repo: EthanRohman93/ethanrohman
+          TF_VAR_ethanrohman_crt: ${{ secrets.ETHANROHMAN_CRT }}
+          TF_VAR_ethanrohman_key: ${{ secrets.ETHANROHMAN_KEY }}
+          TF_VAR_ethanrohman_bundle: ${{ secrets.ETHANROHMAN_BUNDLE }}
+
