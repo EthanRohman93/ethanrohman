@@ -40,6 +40,27 @@ resource "aws_instance" "ethanrohman" {
   key_name               = var.ec2_name
   vpc_security_group_ids = [aws_security_group.web_sg.id]
 
+  user_data = <<-EOF
+              #!/bin/bash
+              if command -v docker &> /dev/null
+              then
+                echo "Docker version: $(docker --version)"
+              else
+                echo "Docker not installed"
+              fi
+              
+              if command -v docker compose &> /dev/null
+              then
+                echo "Docker Compose version: $(docker-compose --version)"
+              else
+                echo "Docker Compose not installed"
+              fi
+              sudo apt update -y
+              sudo apt install nginx -y
+              sudo systemctl start nginx
+              sudo systemctlenable nginx
+              EOF
+
   tags = {
       Name = "${var.env_prefix}-nginx-server"
   }
