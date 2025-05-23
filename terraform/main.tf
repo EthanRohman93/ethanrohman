@@ -46,6 +46,6 @@ resource "aws_instance" "ethanrohman" {
 }
 
 resource "aws_eip" "lb" {
-  instance = aws_instance.vpc_security_group_ids[0]
+  instance = aws_instance.ethanrohman.id
   domain = "vpc"
 }
