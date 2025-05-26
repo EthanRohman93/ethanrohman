@@ -40,15 +40,7 @@ resource "aws_instance" "ethanrohman" {
   key_name               = var.ec2_name
   vpc_security_group_ids = [aws_security_group.web_sg.id]
 
-  user_data = base64encode(templatefile("setup.sh", {
-    ethanrohman_crt = var.ethanrohman_crt
-    ethanrohman_key = var.ethanrohman_key
-    ethanrohman_bundle = var.ethanrohman_bundle
-  }))
-
-  tags = {
-      Name = "${var.env_prefix}-nginx-server"
-  }
+  user_data = file("setup.sh")
 }
 
 resource "aws_eip" "lb" {

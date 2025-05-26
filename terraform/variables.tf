@@ -13,18 +13,3 @@ variable "instance_type" {
 variable "ec2_name" {
   type = string
 }
-
-variable "ethanrohman_crt" {
-  type = string
-  sensitive = true
-}
-
-variable "ethanrohman_key" {
-  type = string
-  sensitive = true
-}
-
-variable "ethanrohman_bundle" {
-  type = string
-  sensitive = true
-}
