@@ -8,7 +8,9 @@ sudo apt-get install ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
+
 # Add the repository to Apt sources:
+
 echo \
     "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc]
     https://download.docker.com/linux/ubuntu \
@@ -19,11 +21,23 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo systemctl enable docker
 sudo systemctl start docker
 
-# repo and certs
+# repo
 
 cd /home/ubuntu
 git clone https://github.com/EthanRohman93/ethanrohman.git
+
+# aws install and ssl secrets
+
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
 mkdir -p .certs
+
+aws secretsmanager get-secret-value --secret-id prod/ssl --region us-east-1 | jq .  ".certs/certs.json"
+
+# TODO parse through ssl certs and put them in the right files
+
 echo "${ethanrohman_crt}" > .certs/ethanrohman.com.crt
 echo "${ethanrohman_key}" > .certs/ethanrohman.com.key
 echo "${ethanrohman_bundle}" > .certs/ethanrohman.com.bundle
