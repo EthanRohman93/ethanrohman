@@ -34,13 +34,10 @@ sudo ./aws/install
 
 mkdir -p .certs
 
+aws sts get-caller-identity
+
 aws secretsmanager get-secret-value --secret-id prod/ssl --region us-east-1 | jq .  ".certs/certs.json"
-
-# TODO parse through ssl certs and put them in the right files
-
-echo "${ethanrohman_crt}" > .certs/ethanrohman.com.crt
-echo "${ethanrohman_key}" > .certs/ethanrohman.com.key
-echo "${ethanrohman_bundle}" > .certs/ethanrohman.com.bundle
+aws secretsmanager get-secret-value --secret-id prod/ssl --region us-east-1 --query SecretString --output text
 
 # app start up
 
