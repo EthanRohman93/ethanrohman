@@ -37,7 +37,7 @@ mkdir -p .certs
 aws sts get-caller-identity
 
 aws secretsmanager get-secret-value --secret-id prod/ssl --region us-east-1 | jq .  ".certs/certs.json"
-aws secretsmanager get-secret-value --secret-id prod/ssl --region us-east-1 --query SecretString --output text
+aws secretsmanager get-secret-value --secret-id prod/ssl --region us-east-1 --query SecretString --output text |
 
 # app start up
 
