@@ -3,8 +3,7 @@
 # Docker and compose
 
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
-sudo apt-get update
-sudo apt-get install ca-certificates curl
+sudo apt-get update sudo apt-get install ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
@@ -37,7 +36,10 @@ mkdir -p .certs
 aws sts get-caller-identity
 
 aws secretsmanager get-secret-value --secret-id prod/ssl --region us-east-1 | jq .  ".certs/certs.json"
-aws secretsmanager get-secret-value --secret-id prod/ssl --region us-east-1 --query SecretString --output text |
+
+jq '.ETHANROHMAN_CRT' .certs/certs.json > .certs/ethanrohman.com.crt
+jq '.ETHANROHMAN_KEY' .certs/certs.json > .certs/ethanrohman.com.key
+jq '.ETHANROHMAN_BUNDLE' .certs/certs.json > .certs/ethanrohman.com.bundle
 
 # app start up
 
