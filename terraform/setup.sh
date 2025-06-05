@@ -5,7 +5,7 @@
 su - ubuntu
 sudo apt update
 cd /home/ubuntu
-echo "$(ls)" > beast.txt
+echo "$(pwd)" > pwd_beast.txt
 # sudo apt install apt-transport-https ca-certificates curl software-properties-common
 # curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 # sudo apt update
