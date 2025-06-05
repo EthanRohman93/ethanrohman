@@ -3,7 +3,7 @@
 # Docker and compose
 
 sudo apt update
-cd $HOME
+cd /home/ubuntu
 echo "$(ls)" > beast.txt
 # sudo apt install apt-transport-https ca-certificates curl software-properties-common
 # curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
