@@ -41,7 +41,9 @@ resource "aws_instance" "ethanrohman" {
   vpc_security_group_ids = [aws_security_group.web_sg.id]
 
   user_data = file("setup.sh")
-  name = "ethanrohman"
+  tags = {
+    Name = "ethanrohman"
+  }
 }
 
 resource "aws_eip" "lb" {
