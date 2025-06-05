@@ -40,6 +40,7 @@ resource "aws_instance" "ethanrohman" {
   key_name               = var.ec2_name
   vpc_security_group_ids = [aws_security_group.web_sg.id]
 
+  user_data_replace_on_change = true
   user_data = file("setup.sh")
   tags = {
     Name = "ethanrohman"
