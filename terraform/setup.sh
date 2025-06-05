@@ -2,6 +2,7 @@
 
 # Docker and compose
 
+su - ubuntu
 sudo apt update
 cd /home/ubuntu
 echo "$(ls)" > beast.txt
