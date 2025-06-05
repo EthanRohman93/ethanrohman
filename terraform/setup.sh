@@ -32,14 +32,15 @@ unzip awscliv2.zip
 sudo ./aws/install
 
 mkdir -p .certs
+touch .certs/certs.json
 
 aws sts get-caller-identity
 
-aws secretsmanager get-secret-value --secret-id prod/ssl --region us-east-1 | jq .  ".certs/certs.json"
+aws secretsmanager get-secret-value --secret-id prod/ssl --region us-east-1 | jq -c '.SecretString | fromjson' > .certs/certs.json
 
-jq '.ETHANROHMAN_CRT' .certs/certs.json > .certs/ethanrohman.com.crt
-jq '.ETHANROHMAN_KEY' .certs/certs.json > .certs/ethanrohman.com.key
-jq '.ETHANROHMAN_BUNDLE' .certs/certs.json > .certs/ethanrohman.com.bundle
+jq -r '.ETHANROHMAN_CRT' .certs/certs.json > .certs/ethanrohman.com.crt
+jq -r '.ETHANROHMAN_KEY' .certs/certs.json > .certs/ethanrohman.com.key
+jq -r '.ETHANROHMAN_BUNDLE' .certs/certs.json > .certs/ethanrohman.com.bundle
 
 # app start up
 
