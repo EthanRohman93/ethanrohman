@@ -40,8 +40,9 @@ resource "aws_instance" "ethanrohman" {
   key_name               = var.ec2_name
   vpc_security_group_ids = [aws_security_group.web_sg.id]
 
+  user_data = file("setup.sh")
   tags = {
-      Name = "${var.env_prefix}-nginx-server"
+    Name = "ethanrohman"
   }
 }
 
