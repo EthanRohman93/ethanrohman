@@ -35,7 +35,7 @@ resource "aws_security_group" "web_sg" {
 }
 
 data "aws_iam_instance_profile" "ec2_role" {
-  role = "sslaccess"
+  name = "sslaccess"
 }
 
 resource "aws_instance" "ethanrohman" {
@@ -46,7 +46,7 @@ resource "aws_instance" "ethanrohman" {
 
   user_data_replace_on_change = true
   user_data = file("setup.sh")
-  iam_instance_profile = data.aws_iam_instance_profile.role
+  iam_instance_profile = data.aws_iam_instance_profile.ec2_role
   tags = {
     Name = "ethanrohman"
   }
