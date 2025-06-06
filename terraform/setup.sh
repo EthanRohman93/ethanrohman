@@ -40,5 +40,5 @@ jq -r '.ETHANROHMAN_BUNDLE' .certs/certs.json > .certs/ethanrohman.com.bundle
 
 # app start up
 
-# cd ethanrohman
-# sudo docker compose up -d
+cd ethanrohman
+sudo docker compose up --build
