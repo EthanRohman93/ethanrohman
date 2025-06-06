@@ -34,10 +34,6 @@ resource "aws_security_group" "web_sg" {
   }
 }
 
-data "aws_iam_instance_profile" "ec2_role" {
-  name = "sslaccess"
-}
-
 resource "aws_instance" "ethanrohman" {
   ami                    = "ami-084568db4383264d4"
   instance_type          = var.instance_type
@@ -46,7 +42,7 @@ resource "aws_instance" "ethanrohman" {
 
   user_data_replace_on_change = true
   user_data = file("setup.sh")
-  iam_instance_profile = data.aws_iam_instance_profile.ec2_role
+  iam_instance_profile = "sslaccess"
   tags = {
     Name = "ethanrohman"
   }
