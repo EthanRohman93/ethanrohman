@@ -34,6 +34,11 @@ resource "aws_security_group" "web_sg" {
   }
 }
 
+data "aws_iam_instance_profile" "ec2_role" {
+  name = "sslaccess"
+  arn = "arn:aws:iam::533267027805:role/sslaccess"
+}
+
 resource "aws_instance" "ethanrohman" {
   ami                    = "ami-084568db4383264d4"
   instance_type          = var.instance_type
