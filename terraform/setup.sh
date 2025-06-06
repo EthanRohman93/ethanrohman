@@ -32,8 +32,6 @@ sudo ./aws/install
 mkdir -p .certs
 touch .certs/certs.json
 
-aws sts get-caller-identity
-
 aws secretsmanager get-secret-value --secret-id prod/ssl --region us-east-1 | jq -c '.SecretString | fromjson' > .certs/certs.json
 
 # jq -r '.ETHANROHMAN_CRT' .certs/certs.json > .certs/ethanrohman.com.crt
