@@ -15,34 +15,26 @@ sudo apt update
 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" |  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt update 
-sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-# apt-cache policy docker-ce
-# sudo apt install docker-ce
-# sudo systemctl status docker
-# sudo usermod -aG docker ubuntu
-# mkdir -p ~/.docker/cli-plugins/
-# curl -SL https://github.com/docker/compose/releases/download/v2.3.3/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
-# chmod +x ~/.docker/cli-plugins/docker-compose
-# docker compose version
+sudo apt -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo usermod -aG docker $USER
+newgrp docker
+sudo systemctl start docker
 
-# repo
-
-# cd /home/ubuntu
-# git clone https://github.com/EthanRohman93/ethanrohman.git
+git clone https://github.com/EthanRohman93/ethanrohman.git
 
 # aws install and ssl secrets
 
-# sudo apt install unzip
-# curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-# unzip awscliv2.zip
-# sudo ./aws/install
+sudo apt install unzip
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
 
-# mkdir -p .certs
-# touch .certs/certs.json
+mkdir -p .certs
+touch .certs/certs.json
 
-# aws sts get-caller-identity
+aws sts get-caller-identity
 
-# aws secretsmanager get-secret-value --secret-id prod/ssl --region us-east-1 | jq -c '.SecretString | fromjson' > .certs/certs.json
+aws secretsmanager get-secret-value --secret-id prod/ssl --region us-east-1 | jq -c '.SecretString | fromjson' > .certs/certs.json
 
 # jq -r '.ETHANROHMAN_CRT' .certs/certs.json > .certs/ethanrohman.com.crt
 # jq -r '.ETHANROHMAN_KEY' .certs/certs.json > .certs/ethanrohman.com.key
