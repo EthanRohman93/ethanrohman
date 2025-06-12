@@ -1,0 +1,30 @@
+name: Update
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: assume aws role
+        uses: aws-actions/configure-aws-credentials@v4.1.0
+        with:
+          audience: sts.amazonaws.com
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::533267027805:role/beast
+          output-credentials: true
+
+      - name: update server
+        run: |
+          cd ethanrohman
+          chmod +x update_server.sh
+          ./update_server.sh
