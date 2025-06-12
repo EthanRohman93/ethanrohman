@@ -1,9 +1,9 @@
 #!/bin/bash
 
-INSTANCE_ID=aws ec2 describe-instances \
+INSTANCE_ID=$(aws ec2 describe-instances \
     --filters "Name=tag:Name,Values=ethanrohman*" \
-    --output text \
-    --query "Reservations[*].Instances[*].InstanceId"
+    --query "Reservations[*].Instances[*].InstanceId" \
+    --output text)
 
 aws ssm send-command \
     --document-name "UpdateServer" \
