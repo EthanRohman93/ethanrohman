@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Docker and compose
-
 su - ubuntu
 sudo apt update
 cd /home/ubuntu
@@ -21,8 +19,4 @@ newgrp docker
 sudo systemctl start docker
 
 git clone https://github.com/EthanRohman93/ethanrohman.git
-
-# app start up
-
-cd ethanrohman
-sudo docker compose up --build
+chmod +x ./ethanrohman/reset_server.sh
