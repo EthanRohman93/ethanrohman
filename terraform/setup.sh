@@ -18,5 +18,4 @@ sudo usermod -aG docker $USER
 newgrp docker
 sudo systemctl start docker
 
-git clone https://github.com/EthanRohman93/ethanrohman.git
-chmod +x ./ethanrohman/reset_server.sh
+chmod +x /home/ubuntu/update_server.sh
