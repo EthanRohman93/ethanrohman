@@ -27,10 +27,10 @@ jobs:
         id: get-instance-id
         run: |
           INSTANCE_ID=$(aws ec2 describe-instances \
-            --filters "Name=tag:Name,Values=ethanrohman*" \
+            --filters "Name=tag:Name,Values=ethanrohman" \
             --query "Reservations[*].Instances[*].InstanceId" \
             --output text)
-          echo "INSTANCE_ID=$INSTANCE_ID" ++ $GITHUB_OUTPUT
+          echo "INSTANCE_ID=$INSTANCE_ID" >> $GITHUB_OUTPUT
 
       - name: update server
         run: |
