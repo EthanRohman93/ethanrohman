@@ -23,20 +23,11 @@ jobs:
           role-to-assume: arn:aws:iam::533267027805:role/beast
           output-credentials: true
 
-      - name: get instance id
-        id: get-instance-id
-        run: |
-          INSTANCE_ID=$(aws ec2 describe-instances \
-            --filters "Name=tag:Name,Values=ethanrohman" \
-            --query "Reservations[*].Instances[*].InstanceId" \
-            --output text)
-          echo "INSTANCE_ID=$INSTANCE_ID" >> $GITHUB_OUTPUT
-
       - name: update server
         run: |
           aws ssm send-command \
             --document-name "AWS-RunShellScript" \
-            --targets "Key=InstanceIds,Values=${{ steps.get-instance-id.output.INSTANCE_ID }}" \
+            --targets "Key=InstanceIds,Values=i-07bb2ebb47047207d" \
             --parameters "commands=[
               \"#!/bin/bash\",
               \"docker stop nginx\",
