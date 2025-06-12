@@ -9,7 +9,6 @@ aws ssm send-command \
     --document-name "UpdateServer" \
     --parameters "commands=[
         \"#!/bin/bash\",
-        \"cd /home/ubuntu/ethanrohman\",
         \"docker stop nginx\",
         \"docker rm nginx\",
         \"cd /home/ubuntu/ethanrohman\",
