@@ -18,11 +18,8 @@ sudo usermod -aG docker $USER
 newgrp docker
 sudo systemctl start docker
 
-mkdir /home/ubunt/.certs
+mkdir .certs
+git clone https://github.com/EthanRohman93/ethanrohman.git
 
-mkdir /tmp/ssm
-cd /tmp/ssm
-wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb
-sudo dpkg -i amazon-ssm-agent.deb
+sudo snap install amazon-ssm-agent --classic
 sudo snap start amazon-ssm-agent
-
