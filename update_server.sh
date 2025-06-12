@@ -6,11 +6,14 @@ INSTANCE_ID=$(aws ec2 describe-instances \
     --output text)
 
 aws ssm send-command \
-    --document-name "UpdateServer" \
+    --document-name "AWS-RunShellScript" \
     --parameters "commands=[
         \"#!/bin/bash\",
         \"docker stop nginx\",
         \"docker rm nginx\",
+        \"rm -rf /home/ubuntu/ethanrohman\",
+        \"cd /home/ubuntu\",
+        \"git clone https://github.com/EthanRohman93/ethanrohman.git ethanrohman\",
         \"cd /home/ubuntu/ethanrohman\",
         \"git pull origin main\",
         \"docker compose up --build -d\"
