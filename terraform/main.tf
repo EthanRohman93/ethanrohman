@@ -42,6 +42,7 @@ resource "aws_instance" "ethanrohman" {
 
   user_data_replace_on_change = true
   user_data = file("setup.sh")
+  iam_instance_profile = "ethanrohman-ssm"
   tags = {
     Name = "ethanrohman"
   }
