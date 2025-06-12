@@ -27,7 +27,7 @@ jobs:
         run: |
           aws ssm send-command \
             --document-name "AWS-RunShellScript" \
-            --targets "Key=InstanceIds,Values=i-07bb2ebb47047207d" \
+            --targets "Key=instanceids,Values=i-07bb2ebb47047207d" \
             --parameters "commands=[
               \"#!/bin/bash\",
               \"docker stop nginx\",
