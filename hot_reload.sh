@@ -19,5 +19,7 @@ inotifywait -m -r . -e modify -e create -e delete -e move --exclude '.+\.swp$' |
 while read -r path action file; do
     echo "Change detected: $action on $path$file"
     echo "Running reset_server.sh..."
-    ./reset_server.sh
+    docker stop nginx
+    docker rm nginx
+    docker compose up --build -d
 done
