@@ -16,3 +16,10 @@
 - run reset server script through aws cli
 - stops and removes current nginx container pulls main and rebuilds docker
   container
+
+
+## todo
+
+[] ad
+[]
+[]

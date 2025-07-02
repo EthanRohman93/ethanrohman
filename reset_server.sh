@@ -1,5 +1,8 @@
 #!/bin/bash
 
-docker stop nginx-ssl
-docker rm nginx-ssl
-docker compose up --build
+docker stop nginx
+docker rm nginx
+
+git pull
+
+docker compose up --build -d
