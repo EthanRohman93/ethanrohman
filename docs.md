@@ -17,9 +17,6 @@
 - stops and removes current nginx container pulls main and rebuilds docker
   container
 
+## connect to server
 
-## todo
-
-[] ad
-[]
-[]
+ssh -i "ethanrohman.pem" ubuntu@ec2-54-145-107-218.compute-1.amazonaws.com
