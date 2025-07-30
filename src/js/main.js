@@ -26,15 +26,15 @@ function splitForSmallScreen(text, maxLength) {
 
 function adjustRatioOnScreenWidth(x) {
     if (x > 450) {
-        const maxRatio = 0.55;
-        const minRatio = 0.52;
+        const maxRatio = 0.57;
+        const minRatio = 0.54;
         const maxX = 800;
         const xRatio = Math.min(x / maxX, 1);
         const eased = 1 - Math.pow(1 - xRatio, 2);
         return eased * (maxRatio - minRatio) + maxRatio;
     } else {
-        const maxRatio = 0.56;
-        const minRatio = 0.53;
+        const maxRatio = 0.58;
+        const minRatio = 0.55;
         const maxX = 450;
         const xRatio = Math.min(x / maxX, 1);
         const eased = 1 - Math.pow(1 - xRatio, 2);
@@ -52,8 +52,14 @@ function positionElements() {
         charHeight;
     // width less than 450 needs 40 char fix
     // if (width > 1) {
-    // charWidth = width / 80;
-    charWidth = width / 40;
+    if (width > 450) {
+        charWidth = width / 80;
+    } else {
+        charWidth = width / 40;
+        const text = box2.textContent;
+        const formattedText = splitForSmallScreen(text, 40);
+        box2.innerHTML = formattedText.replace(/\n/g, '<br>');
+    }
 
     charHeight = charWidth / adjustRatioOnScreenWidth(width);
     // } else {
@@ -70,10 +76,6 @@ function positionElements() {
     box1.style.top = 0;
     box1.style.color = 'red';
     box1.style.overflowWrap = 'break-word';
-    const text = box2.textContent;
-    const formattedText = splitForSmallScreen(text, 40);
-    box2.innerHTML = formattedText.replace(/\n/g, '<br>');
-    console.log(`${formattedText}`);
 }
 console.log(JSON.stringify(`testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest \
 # this is the best
