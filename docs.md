@@ -20,3 +20,5 @@
 ## connect to server
 
 ssh -i "ethanrohman.pem" ubuntu@ec2-54-145-107-218.compute-1.amazonaws.com
+
+
