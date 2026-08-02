@@ -287,16 +287,74 @@ main {
   margin-top: 0.15rem;
 }
 
-.role-point {
-  margin: 0.7rem 0 0;
-  color: var(--text-dim);
-  font-size: 0.92rem;
-  line-height: 1.65;
+/* ---------- about card ---------- */
+.about-card {
+  padding: 1.3rem 1.5rem;
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--accent);
+  border-radius: 0.8rem;
+  background: var(--panel);
+  box-shadow: 0 8px 30px rgba(124, 58, 237, 0.12);
 }
 
-.role-point strong {
-  color: var(--text);
+/* ---------- glowing timeline ---------- */
+.tl {
+  position: relative;
+  margin-top: 1rem;
+  padding-left: 1.4rem;
+  border-left: 1px solid var(--border);
+}
+
+.tl-item {
+  position: relative;
+  padding-bottom: 1.1rem;
+}
+
+.tl-item:last-child {
+  padding-bottom: 0;
+}
+
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -1.4rem;
+  top: 0.42rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+}
+
+.tl-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.tl-period {
+  font-size: 0.92rem;
   font-weight: 600;
+  color: var(--text);
+}
+
+.tl-tag {
+  font-size: 0.72rem;
+  padding: 0.12rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-accent);
+  color: var(--accent-bright);
+  background: rgba(167, 139, 250, 0.08);
+  white-space: nowrap;
+}
+
+.tl-text {
+  margin: 0.3rem 0 0;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: 1.65;
 }
 
 /* ---------- interests ---------- */

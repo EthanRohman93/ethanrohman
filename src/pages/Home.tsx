@@ -68,7 +68,7 @@ type Role = {
   title: string
   dates: string
   location: string
-  points: { label?: string; text: string }[]
+  entries: { period?: string; client?: string; text: string }[]
 }
 
 const groups: SkillGroup[] = [
@@ -155,14 +155,46 @@ const roles: Role[] = [
     title: 'software developer',
     dates: 'july 2024 — current',
     location: 'des moines, ia',
-    points: [
+    entries: [
       {
-        label: 'john deere — operations center',
-        text: 'delivered react and typescript feature work; built a spring boot rest api from scratch managing dynamodb, rds, and sqs; managed infrastructure with terraform and flyway migrations; and added cdn caching along with micro-frontend support for bulk operations.',
+        period: 'late 2024',
+        client: 'john deere',
+        text: 'maintained existing applications through package upgrades, improving documentation and test coverage while building business domain knowledge.',
       },
       {
-        label: 'michigan health association — management web app',
-        text: 'supported a legacy asp.net application, then took a lead role rewriting it with blazor and a modern full-stack architecture.',
+        period: 'early 2025',
+        client: 'john deere',
+        text: 'delivered react and typescript feature work; rewrote an existing application to improve performance; expanded integration and end-to-end test coverage; established database management for a microservice with terraform deployment and flyway migrations.',
+      },
+      {
+        period: 'mid 2025',
+        client: 'john deere',
+        text: 'built a spring boot rest api from scratch managing dynamodb, rds, and sqs; set up full testing along with datadog metrics and visibility.',
+      },
+      {
+        period: 'late 2025',
+        client: 'john deere',
+        text: 'continued front-end feature work including major library upgrades; continued to manage infrastructure with terraform; expanded database and api usage to support data validation.',
+      },
+      {
+        period: 'early 2026',
+        client: 'john deere',
+        text: 'integrated datadog metrics and observability alongside package updates; delivered micro-frontend feature work supporting bulk operations; added cdn caching to website infrastructure.',
+      },
+      {
+        period: 'early 2026',
+        client: 'michigan health association',
+        text: 'supported a legacy asp.net application.',
+      },
+      {
+        period: 'mid 2026',
+        client: 'john deere',
+        text: 'delivered front-end feature work and state management for a new react and typescript data-entry-heavy application; extended the same spring boot api with s3 file management and additional database features.',
+      },
+      {
+        period: 'mid 2026',
+        client: 'michigan health association',
+        text: 'took an expanded role, beyond the earlier support work, rewriting the legacy asp.net application in blazor. the rewrite was initially scoped to evaluate the viability of ai tooling on a business-logic-heavy codebase, with the team later shifting to applying ai selectively as needed.',
       },
     ],
   },
@@ -171,7 +203,7 @@ const roles: Role[] = [
     title: 'data science intern',
     dates: 'may 2022 — may 2024',
     location: 'minneapolis, mn',
-    points: [
+    entries: [
       {
         text: 'built a question-answering bot with sentence transformers and a custom embedding-model vector store deployed with mlflow; extended search using embedding models tuned against local elasticsearch; and contributed to pyspark pipelines in databricks and ascend.',
       },
@@ -227,7 +259,7 @@ function Home() {
           <h2>about</h2>
           <span className="rule" />
         </div>
-        <div className="prose">
+        <div className="prose about-card">
           <p>
             I try to collect wisdom from as many different sources as I can, but
             I rely heavily on Jesus Christ for direction. Everything else gets
@@ -259,12 +291,23 @@ function Home() {
               <div className="role-sub">
                 {role.title} · {role.location}
               </div>
-              {role.points.map((point, i) => (
-                <p key={i} className="role-point">
-                  {point.label && <strong>{point.label}: </strong>}
-                  {point.text}
-                </p>
-              ))}
+              <div className="tl">
+                {role.entries.map((entry, i) => (
+                  <div key={i} className="tl-item">
+                    {(entry.period || entry.client) && (
+                      <div className="tl-head">
+                        {entry.period && (
+                          <span className="tl-period">{entry.period}</span>
+                        )}
+                        {entry.client && (
+                          <span className="tl-tag">{entry.client}</span>
+                        )}
+                      </div>
+                    )}
+                    <p className="tl-text">{entry.text}</p>
+                  </div>
+                ))}
+              </div>
             </article>
           ))}
         </div>
