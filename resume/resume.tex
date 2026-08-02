@@ -1,0 +1,58 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{titlesec}
+
+\definecolor{accent}{HTML}{7C3AED}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=accent,
+  linkcolor=black
+}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\titleformat{\section}
+  {\Large\bfseries\color{accent}}
+  {}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{14pt}{6pt}
+
+\begin{document}
+
+\begin{center}
+  {\Huge\bfseries Ethan Rohman} \\[6pt]
+  {\large Full Stack Software Developer} \\[4pt]
+  \href{mailto:ethan@ethanrohmandev.com}{ethan@ethanrohmandev.com} $\cdot$
+  \href{https://github.com/EthanRohman93}{github.com/EthanRohman93} $\cdot$
+  \href{https://ethanrohmandev.com}{ethanrohmandev.com}
+\end{center}
+
+\section{Summary}
+Full stack software developer focused on building long lasting APIs, clean front
+ends, and infrastructure that survives production. Comfortable across the whole
+stack, from Terraform and AWS networking down to SQL migrations, with a love for
+low level languages and tools that stay usable on a bare server.
+
+\section{Skills}
+
+\begin{itemize}[itemsep=1pt, topsep=2pt]
+  \item \textbf{APIs:} Spring Boot, Node.js, FastAPI, Django
+  \item \textbf{Front End:} React, Next.js, TypeScript, JavaScript, CSS, SASS, Tailwind, HTML
+  \item \textbf{Database:} MongoDB, PostgreSQL, AWS Aurora PostgreSQL, Flyway
+  \item \textbf{CI/CD:} GitHub Actions, Bash automation
+  \item \textbf{Infrastructure:} Terraform, AWS (IAM, EC2/ECS, networking), Docker, AWS CLI scripting
+  \item \textbf{Testing:} Playwright E2E and integration, Pytest, JUnit, Vite, Zig test
+\end{itemize}
+
+\section{Personal Interests}
+Networking and HTTP/API design, low level languages (Zig, C, Rust), Vim/Tmux and
+replicating a productive editor everywhere, web development, basketball, lifting
+weights, cooking, and video games.
+
+\end{document}

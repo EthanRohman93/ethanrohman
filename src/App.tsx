@@ -15,6 +15,7 @@ function Layout() {
       </main>
       <footer>
         <nav>
+          <NavLink to="/">home</NavLink>
           <a href="/resume.pdf" download>download resume</a>
           <NavLink to="/docs">docs</NavLink>
           <NavLink to="/playground">playground</NavLink>

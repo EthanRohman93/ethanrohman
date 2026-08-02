@@ -5,7 +5,7 @@ const TEST_TEXT =
 
 function Playground() {
   return (
-    <div className="content">
+    <div className="page">
       <h1>playground</h1>
       {[0, 1, 2, 3].map((i) => (
         <div key={i} className="play-box">{TEST_TEXT}</div>
