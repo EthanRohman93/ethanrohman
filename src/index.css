@@ -1,0 +1,99 @@
+@font-face {
+  font-family: 'DaddyTimeMono';
+  src: url('/fonts/DaddyTimeMonoNerdFontMono-Regular.ttf') format('truetype');
+}
+
+:root {
+  --font: 'DaddyTimeMono', monospace;
+  --bg: #000;
+  --fg: #c4a7e7;
+  --fg-dim: #a08ac0;
+  --fg-link: #e0d3f5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--fg);
+  margin: 0;
+  min-height: 100vh;
+}
+
+.site {
+  max-width: 80ch;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+.content {
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding-top: 3rem;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.content h1 {
+  font-size: 1.4rem;
+}
+
+.content h2 {
+  font-size: 1.1rem;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.content ul {
+  margin: 0;
+  padding-left: 2ch;
+  list-style: none;
+}
+
+.content p {
+  margin: 0.25rem 0;
+}
+
+.play-box {
+  white-space: pre-wrap;
+  word-break: break-word;
+  border: 1px solid var(--fg-dim);
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+footer {
+  padding: 2rem 0 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--fg-dim);
+}
+
+footer nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+footer a,
+footer a:visited {
+  color: var(--fg-link);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer p {
+  margin: 0;
+}
