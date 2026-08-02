@@ -27,6 +27,9 @@ import {
   SiVim,
   SiTmux,
   SiDocker,
+  SiRedux,
+  SiJenkins,
+  SiJest,
 } from 'react-icons/si'
 import { FaAws } from 'react-icons/fa'
 import {
@@ -63,6 +66,7 @@ const groups: SkillGroup[] = [
     skills: [
       { name: 'spring boot', icon: SiSpringboot, note: 'prod' },
       { name: 'node server', icon: SiNodedotjs, note: 'prod' },
+      { name: 'hapi.js', icon: SiNodedotjs },
       { name: 'fastapi', icon: SiFastapi },
       { name: 'django', icon: SiDjango },
     ],
@@ -72,7 +76,9 @@ const groups: SkillGroup[] = [
     icon: LuCloud,
     skills: [
       { name: 'react', icon: SiReact, note: 'prod' },
+      { name: 'redux', icon: SiRedux },
       { name: 'nextjs', icon: SiNextdotjs },
+      { name: 'blazor', icon: LuBraces },
       { name: 'typescript', icon: SiTypescript, note: 'prod' },
       { name: 'javascript', icon: SiJavascript, note: 'prod' },
       { name: 'css', icon: SiCss },
@@ -88,6 +94,8 @@ const groups: SkillGroup[] = [
       { name: 'mongodb', icon: SiMongodb },
       { name: 'postgresql', icon: SiPostgresql },
       { name: 'aws aurora', icon: FaAws, note: 'prod' },
+      { name: 'dynamodb', icon: FaAws },
+      { name: 'elasticsearch', icon: LuDatabase },
       { name: 'flyway', icon: SiFlyway, note: 'prod' },
     ],
   },
@@ -96,6 +104,7 @@ const groups: SkillGroup[] = [
     icon: LuGitBranch,
     skills: [
       { name: 'github actions', icon: SiGithubactions, note: 'prod' },
+      { name: 'jenkins', icon: SiJenkins },
       { name: 'bash automation', icon: SiGnubash, note: 'prod' },
     ],
   },
@@ -113,6 +122,7 @@ const groups: SkillGroup[] = [
     icon: LuTestTube,
     skills: [
       { name: 'playwright', note: 'e2e + integration, prod' },
+      { name: 'jest', icon: SiJest },
       { name: 'pytest', icon: SiPytest },
       { name: 'vite', icon: SiVite, note: 'prod' },
       { name: 'junit', icon: SiJunit5 },
@@ -162,7 +172,7 @@ function Home() {
           building fast apis, clean front ends, and infrastructure that lasts.
         </p>
         <div className="hero-actions">
-          <a className="btn btn-primary" href="/resume.pdf" download>
+          <a className="btn btn-primary" href="/resume.pdf" download="ethanrohman_resume.pdf">
             <LuDownload /> download resume
           </a>
           <a

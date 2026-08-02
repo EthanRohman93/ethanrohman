@@ -1,11 +1,12 @@
 \documentclass[11pt,letterpaper]{article}
 
 \usepackage[utf8]{inputenc}
-\usepackage[margin=0.7in]{geometry}
+\usepackage[margin=0.65in]{geometry}
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{titlesec}
+\usepackage{parskip}
 
 \definecolor{accent}{HTML}{7C3AED}
 
@@ -16,43 +17,123 @@
 }
 
 \pagestyle{empty}
-\setlength{\parindent}{0pt}
+
+\setlist[itemize]{itemsep=1pt, topsep=3pt, leftmargin=1.4em}
 
 \titleformat{\section}
   {\Large\bfseries\color{accent}}
   {}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{14pt}{6pt}
+\titlespacing{\section}{0pt}{16pt}{6pt}
+
+\titleformat{\subsection}
+  {\large\bfseries}
+  {}{0em}{}
+\titlespacing{\subsection}{0pt}{10pt}{2pt}
+
+\newcommand{\entry}[2]{%
+  \noindent{\large\textbf{#1}}\hfill{\textbf{#2}}%
+}
 
 \begin{document}
 
 \begin{center}
-  {\Huge\bfseries Ethan Rohman} \\[6pt]
-  {\large Full Stack Software Developer} \\[4pt]
-  \href{mailto:ethan@ethanrohmandev.com}{ethan@ethanrohmandev.com} $\cdot$
+  {\Huge\bfseries Ethan Rohman} \\[4pt]
+  {\large Full Stack Software Developer} \\[6pt]
+  \href{mailto:ethanmrohman@gmail.com}{ethanmrohman@gmail.com} $\cdot$
+  507-676-5914 $\cdot$
   \href{https://github.com/EthanRohman93}{github.com/EthanRohman93} $\cdot$
   \href{https://ethanrohmandev.com}{ethanrohmandev.com}
 \end{center}
 
 \section{Summary}
-Full stack software developer focused on building long lasting APIs, clean front
-ends, and infrastructure that survives production. Comfortable across the whole
-stack, from Terraform and AWS networking down to SQL migrations, with a love for
-low level languages and tools that stay usable on a bare server.
+Full stack software developer with four years in software engineering, currently
+consulting across healthcare and agricultural technology clients. Experienced
+building REST APIs in Spring Boot and Node.js, React/TypeScript front ends, and
+AWS infrastructure managed with Terraform. Focused on shipping reliable
+production software with strong testing coverage.
 
-\section{Skills}
+\section{Experience}
 
-\begin{itemize}[itemsep=1pt, topsep=2pt]
-  \item \textbf{APIs:} Spring Boot, Node.js, FastAPI, Django
-  \item \textbf{Front End:} React, Next.js, TypeScript, JavaScript, CSS, SASS, Tailwind, HTML
-  \item \textbf{Database:} MongoDB, PostgreSQL, AWS Aurora PostgreSQL, Flyway
-  \item \textbf{CI/CD:} GitHub Actions, Bash automation
-  \item \textbf{Infrastructure:} Terraform, AWS (IAM, EC2/ECS, networking), Docker, AWS CLI scripting
-  \item \textbf{Testing:} Playwright E2E and integration, Pytest, JUnit, Vite, Zig test
+\entry{QCI (Quality Consulting Inc.)}{Des Moines, IA}
+\noindent\textit{Software Developer} \hfill \textbf{July 2024 -- Current}\\[4pt]
+\noindent Consulting software developer across two clients: John Deere, working
+on their operations center web application, and Michigan Health Association, a
+management web application serving hospitals and health systems. Work spans the
+full stack including AWS services, Terraform-managed infrastructure, and CI/CD.
+
+\subsection*{John Deere -- operations center application}
+\begin{itemize}
+  \item \textbf{Late 2024:} Maintained existing applications with package
+    upgrades, improving documentation and test coverage while learning business
+    domain knowledge.
+  \item \textbf{Early 2025:} Delivered front end feature work in a
+    React/TypeScript environment; rewrote an existing React/TypeScript
+    application to improve performance; expanded integration and end to end
+    test coverage; set up database management for a microservice including
+    Terraform deployment and Flyway migrations.
+  \item \textbf{Mid 2025:} Built a Spring Boot REST API from scratch, managing
+    AWS services from the API including DynamoDB, RDS, and SQS; wrote unit
+    tests with proper mocking of external libraries.
+  \item \textbf{Late 2025:} Continued front end feature work including large
+    library upgrades; managed infrastructure with Terraform; expanded database
+    and API usage to support data validation.
+  \item \textbf{Early 2026:} Integrated metrics and visibility solutions
+    alongside package updates; added feature work to a micro front end
+    application to support bulk operations; added CDN caching to website
+    infrastructure.
+  \item \textbf{Mid 2026:} Maintained React/TypeScript front ends and Node.js
+    backends with feature work, bug fixes, and package updates; built
+    substantial front end work on a new TypeScript/React application focused on
+    state management for a data-entry-heavy product; added backend feature work
+    including S3 file management and database features.
 \end{itemize}
 
-\section{Personal Interests}
-Networking and HTTP/API design, low level languages (Zig, C, Rust), Vim/Tmux and
-replicating a productive editor everywhere, web development, basketball, lifting
-weights, cooking, and video games.
+\subsection*{Michigan Health Association -- management web application}
+\begin{itemize}
+  \item \textbf{Early 2026:} Provided support for a legacy ASP.NET application.
+  \item \textbf{Mid 2026:} Took a larger role rewriting the legacy ASP.NET
+    application using Blazor and modern architecture, full stack, ramping
+    quickly on the stack.
+\end{itemize}
+
+\entry{UnitedHealth Group (Surest: A UnitedHealth Company)}{Minneapolis, MN}
+\noindent\textit{Data Science Intern} \hfill \textbf{May 2022 -- May 2024}\\[4pt]
+\begin{itemize}
+  \item Analyzed text message campaign engagement with Python, Pandas, and SQL.
+  \item Developed a question-answer bot using sentence transformers and a custom
+    embedding model vector store, managing deployment with MLflow.
+  \item Improved search with embedding models and a custom vector store.
+  \item Built and tested against local Elasticsearch instances to fine-tune
+    search parameters.
+  \item Contributed to complex PySpark pipelines in Databricks and Ascend,
+    working with AWS S3, GitHub, and Jenkins automation.
+  \item Presented findings to groups up to 40 people, translating technical
+    details into business insights.
+\end{itemize}
+
+\section{Skills}
+\begin{itemize}
+  \item \textbf{APIs:} Spring Boot, Node.js, FastAPI, Django, Hapi.js
+  \item \textbf{Front End:} React, Redux, Next.js, TypeScript, JavaScript, CSS,
+    SASS, Tailwind, HTML, Blazor
+  \item \textbf{Database:} MongoDB, PostgreSQL, AWS Aurora PostgreSQL, DynamoDB,
+    Elasticsearch, Flyway
+  \item \textbf{CI/CD:} GitHub Actions, Jenkins, Bash automation
+  \item \textbf{Infrastructure:} Terraform, AWS (IAM, EC2/ECS, S3, SQS, RDS,
+    DynamoDB, networking), Docker, AWS CLI scripting
+  \item \textbf{Testing:} Playwright E2E and integration, Vite, Jest, JUnit,
+    Pytest, Zig test
+  \item \textbf{Tools:} Vim, Tmux, Neovim, Git
+\end{itemize}
+
+\section{Education}
+\entry{Drake University}{Des Moines, IA}
+\noindent\textit{Bachelor of Science in Computer Science} \hfill \textbf{GPA: 3.86}\\[4pt]
+
+\section{Tools \& Side Work}
+Personal tools and experiments: a finance web application (PostgreSQL, Django,
+Next.js), a hot-reloading LaTeX-to-PDF build pipeline, and ongoing exploration
+of low level languages (Zig, C, Rust) and reproducible editor setups with Vim,
+Tmux, and Neovim.
 
 \end{document}
