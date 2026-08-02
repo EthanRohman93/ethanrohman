@@ -158,11 +158,11 @@ const roles: Role[] = [
     points: [
       {
         label: 'john deere — operations center',
-        text: 'react and typescript feature work, a spring boot rest api built from scratch managing dynamodb, rds, and sqs, terraform-managed infrastructure with flyway migrations, cdn caching, and micro-frontend work supporting bulk operations.',
+        text: 'delivered react and typescript feature work; built a spring boot rest api from scratch managing dynamodb, rds, and sqs; managed infrastructure with terraform and flyway migrations; and added cdn caching along with micro-frontend support for bulk operations.',
       },
       {
         label: 'michigan health association — management web app',
-        text: 'support for a legacy asp.net application, then a lead role rewriting it with blazor and a modern full-stack architecture.',
+        text: 'supported a legacy asp.net application, then took a lead role rewriting it with blazor and a modern full-stack architecture.',
       },
     ],
   },
@@ -173,7 +173,7 @@ const roles: Role[] = [
     location: 'minneapolis, mn',
     points: [
       {
-        text: 'built a question-answering bot with sentence transformers and a custom embedding-model vector store deployed with mlflow, extended search tuned against local elasticsearch, and contributed to pyspark pipelines in databricks and ascend.',
+        text: 'built a question-answering bot with sentence transformers and a custom embedding-model vector store deployed with mlflow; extended search using embedding models tuned against local elasticsearch; and contributed to pyspark pipelines in databricks and ascend.',
       },
     ],
   },
@@ -234,11 +234,11 @@ function Home() {
             weighed against that.
           </p>
           <p>
-            While I program I usually have lectures running in the background
-            instead of music — religion, philosophy, and published research
-            papers — and I read whenever I get the chance. Outside of daily
-            obligations and taking care of my health, almost every second goes
-            into programming.
+            While I program, I usually have lectures on religion, philosophy,
+            and published research papers running in the background instead of
+            music, and I read whenever I get the chance. When I am not handling
+            daily obligations or taking care of my health, almost every second
+            goes into programming.
           </p>
         </div>
       </section>

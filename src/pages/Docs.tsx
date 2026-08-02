@@ -8,7 +8,7 @@ function Docs() {
       <ul>
         <li>successful ssl cert deploy after reissue</li>
         <li>updated scripts for resetting the remote server and hot reloading for local dev</li>
-        <li>working on hosting pdf document</li>
+        <li>working on hosting a pdf document</li>
       </ul>
 
       <h2>this site</h2>
