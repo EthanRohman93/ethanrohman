@@ -1,7 +1,7 @@
 \documentclass[11pt,letterpaper]{article}
 
 \usepackage[utf8]{inputenc}
-\usepackage[margin=0.65in]{geometry}
+\usepackage[margin=0.6in]{geometry}
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{titlesec}
@@ -17,34 +17,38 @@
 
 \pagestyle{empty}
 
+\widowpenalty=10000
+\clubpenalty=10000
+
+\setlength{\parskip}{3pt}
 \setlist[itemize]{itemsep=2pt, topsep=3pt, parsep=0pt, leftmargin=1.3em}
 
 % ---------- section headings ----------
 \titleformat{\section}
   {\large\bfseries\scshape}
-  {}{0em}{}[\vspace{-6pt}\rule{\textwidth}{0.8pt}]
-\titlespacing{\section}{0pt}{14pt}{6pt}
+  {}{0em}{}[\vspace{-7pt}\rule{\textwidth}{0.8pt}]
+\titlespacing{\section}{0pt}{11pt}{5pt}
 
-% ---------- experience entry: org / location on line 1, role / dates on line 2 ----------
+% ---------- entry: org / location on line 1, role / dates on line 2 ----------
 \newcommand{\entry}[4]{%
   \noindent\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
     \textbf{#1} & \textbf{#2} \\
     \textit{#3} & \textit{#4} \\
   \end{tabular*}%
-  \par\vspace{3pt}%
+  \par\vspace{2pt}%
 }
 
-% ---------- client / project sub-heading ----------
+% ---------- client sub-heading ----------
 \newcommand{\client}[1]{%
-  \vspace{5pt}\noindent\textbf{#1}\par\vspace{1pt}%
+  \vspace{3pt}\noindent\textbf{#1}\par\vspace{0pt}%
 }
 
 \begin{document}
 
 % ================= header =================
 \begin{center}
-  {\LARGE\bfseries Ethan Rohman}\\[3pt]
-  {\normalsize Full Stack Software Developer}\\[5pt]
+  {\LARGE\bfseries Ethan Rohman}\\[2pt]
+  {\normalsize Full Stack Software Developer}\\[3pt]
   \small
   \href{mailto:ethanmrohman@gmail.com}{ethanmrohman@gmail.com} $\cdot$
   507-676-5914 $\cdot$
@@ -54,11 +58,11 @@
 
 % ================= summary =================
 \section{Summary}
-Full stack software developer with four years of experience, currently
-consulting across healthcare and agricultural technology clients. Builds REST
-APIs in Spring Boot and Node.js, React and TypeScript front ends, and AWS
-infrastructure managed with Terraform. Focused on shipping reliable production
-software with strong testing coverage.
+Full-stack software developer with four years of experience, currently
+consulting for healthcare and agricultural technology clients. Builds REST APIs
+in Spring Boot and Node.js, React and TypeScript front ends, and
+Terraform-managed AWS infrastructure, with a focus on reliable, well-tested
+production software.
 
 % ================= experience =================
 \section{Experience}
@@ -66,89 +70,76 @@ software with strong testing coverage.
 \entry{QCI (Quality Consulting Inc.)}{Des Moines, IA}
       {Software Developer}{July 2024 -- Current}
 
-\noindent Consulting software developer serving two clients: John Deere, on
-their operations center web application, and Michigan Health Association, on a
-management web application serving hospitals and health systems. Work spans the
-full stack including AWS services, Terraform-managed infrastructure, and CI/CD.
+\noindent Consulting for two clients, working full stack across AWS,
+Terraform-managed infrastructure, and CI/CD.
 
 \client{John Deere --- Operations Center Application}
 \begin{itemize}
-  \item \textbf{Late 2024:} Maintained existing applications with package
+  \item \textbf{Late 2024:} Maintained existing applications through package
     upgrades, improving documentation and test coverage while building business
     domain knowledge.
-  \item \textbf{Early 2025:} Delivered front end feature work in a
-    React and TypeScript environment; rewrote an existing React and TypeScript
-    application to improve performance; expanded integration and end to end test
-    coverage; established database management for a microservice including
-    Terraform deployment and Flyway migrations.
+  \item \textbf{Early 2025:} Delivered React and TypeScript feature work;
+    rewrote an existing application to improve performance; expanded integration
+    and end-to-end test coverage; established database management for a
+    microservice with Terraform deployment and Flyway migrations.
   \item \textbf{Mid 2025:} Built a Spring Boot REST API from scratch, managing
-    AWS services from the API including DynamoDB, RDS, and SQS; wrote unit tests
-    with proper mocking of external libraries.
-  \item \textbf{Late 2025:} Continued front end feature work including large
+    AWS services including DynamoDB, RDS, and SQS; wrote unit tests with proper
+    mocking of external libraries.
+  \item \textbf{Late 2025:} Continued front-end feature work, including major
     library upgrades; managed infrastructure with Terraform; expanded database
     and API usage to support data validation.
-  \item \textbf{Early 2026:} Integrated metrics and visibility solutions
-    alongside package updates; delivered micro front end feature work supporting
+  \item \textbf{Early 2026:} Integrated metrics and observability solutions
+    alongside package updates; delivered micro-frontend feature work supporting
     bulk operations; added CDN caching to website infrastructure.
   \item \textbf{Mid 2026:} Maintained React and TypeScript front ends and
-    Node.js backends through feature work, bug fixes, and package updates; built
-    substantial front end work on a new TypeScript and React application focused
-    on state management for a data entry heavy product; delivered backend
-    features including S3 file management and database work.
+    Node.js back ends; led front-end development on a new React application
+    centered on state management for a data-entry-heavy product; delivered
+    back-end features including S3 file management and database work.
 \end{itemize}
 
-\client{Michigan Health Association --- Management Web Application}
+\client{Michigan Health Association --- Management Web Application (Hospitals \& Health Systems)}
 \begin{itemize}
   \item \textbf{Early 2026:} Supported a legacy ASP.NET application.
   \item \textbf{Mid 2026:} Took a lead role rewriting the legacy ASP.NET
-    application with Blazor and a modern full stack architecture, ramping
+    application with Blazor and a modern full-stack architecture, ramping up
     quickly on a new stack.
 \end{itemize}
 
-\vspace{6pt}
+\newpage
+
 \entry{UnitedHealth Group (Surest: A UnitedHealth Company)}{Minneapolis, MN}
       {Data Science Intern}{May 2022 -- May 2024}
 
 \begin{itemize}
   \item Analyzed text message campaign engagement using Python, Pandas, and SQL.
-  \item Developed a question and answer bot using sentence transformers and a
-    custom embedding model vector store, managing deployment with MLflow.
-  \item Extended search capability with embedding models and a custom vector
-    store.
-  \item Built and tested against local Elasticsearch instances to tune search
-    parameters.
-  \item Contributed to PySpark pipelines in Databricks and Ascend, working with
-    AWS S3, GitHub, and Jenkins automation.
-  \item Presented findings to groups of up to 40 people, translating technical
-    detail into business insight.
+  \item Built a question-answering bot using sentence transformers and a custom
+    embedding-model vector store deployed with MLflow; extended search with
+    embedding models tuned against local Elasticsearch instances.
+  \item Contributed to PySpark pipelines in Databricks and Ascend using AWS S3,
+    GitHub, and Jenkins; presented findings to groups of up to 40 people.
 \end{itemize}
 
 % ================= skills =================
 \section{Skills}
 \begin{itemize}
-  \item \textbf{APIs:} Spring Boot, Node.js, Hapi.js, FastAPI, Django
+  \item \textbf{Back End:} Spring Boot, Node.js, Hapi.js, FastAPI, Django
   \item \textbf{Front End:} React, Redux, Next.js, TypeScript, JavaScript,
-    Blazor, CSS, SASS, Tailwind, HTML
-  \item \textbf{Database:} PostgreSQL, AWS Aurora PostgreSQL, DynamoDB, MongoDB,
+    Blazor, CSS, Sass, Tailwind, HTML
+  \item \textbf{Data:} PostgreSQL, AWS Aurora PostgreSQL, DynamoDB, MongoDB,
     Elasticsearch, Flyway
-  \item \textbf{Infrastructure:} Terraform, AWS (IAM, EC2/ECS, S3, SQS, RDS,
-    DynamoDB, networking), Docker, AWS CLI
-  \item \textbf{CI/CD:} GitHub Actions, Jenkins, Bash automation
-  \item \textbf{Testing:} Playwright (E2E and integration), Vite, Jest, JUnit,
-    Pytest
-  \item \textbf{Tools:} Vim, Neovim, Tmux, Git
+  \item \textbf{Infrastructure \& CI/CD:} Terraform, AWS (IAM, EC2/ECS, S3, SQS,
+    RDS, DynamoDB, networking), Docker, AWS CLI, GitHub Actions, Jenkins, Bash
+  \item \textbf{Testing \& Tools:} Playwright (end-to-end and integration),
+    Vite, Jest, JUnit, pytest, Neovim, tmux, Git
+  \item \textbf{Side Work:} Finance web application (PostgreSQL, Django,
+    Next.js); hot-reloading LaTeX-to-PDF build pipeline; low-level languages
+    (Zig, C, Rust)
 \end{itemize}
 
 % ================= education =================
 \section{Education}
-\entry{Drake University}{Des Moines, IA}
-      {Bachelor of Science in Computer Science}{GPA: 3.86}
-
-% ================= side work =================
-\section{Tools \& Side Work}
-Finance web application built with PostgreSQL, Django, and Next.js; a
-hot-reloading LaTeX to PDF build pipeline; and ongoing work with low level
-languages (Zig, C, Rust) and reproducible editor environments using Vim, Neovim,
-and Tmux.
+\noindent\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+  \textbf{Drake University} --- Bachelor of Science in Computer Science, GPA: 3.86 & Des Moines, IA \\
+\end{tabular*}
 
 \end{document}
