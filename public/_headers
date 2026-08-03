@@ -1,2 +1,6 @@
 /*
   X-Robots-Tag: noai, noimageai
+
+/resume.pdf
+  Cache-Control: public, max-age=60, must-revalidate
+  X-Deploy-Marker: resume-v2
