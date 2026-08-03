@@ -327,6 +327,19 @@ main {
   box-shadow: 0 0 12px var(--accent);
 }
 
+.tl-group {
+  padding-bottom: 0.4rem;
+}
+
+.tl-subhead {
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin: 0.15rem 0 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed var(--border);
+}
+
 .tl-head {
   display: flex;
   align-items: center;

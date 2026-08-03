@@ -71,6 +71,24 @@ type Role = {
   entries: { period?: string; client?: string; text: string }[]
 }
 
+type TimelineGroup = { period?: string; items: { client?: string; text: string }[] }
+
+function groupEntries(entries: Role['entries']): TimelineGroup[] {
+  const groups: TimelineGroup[] = []
+  for (const entry of entries) {
+    const last = groups[groups.length - 1]
+    if (last && last.period && last.period === entry.period) {
+      last.items.push({ client: entry.client, text: entry.text })
+    } else {
+      groups.push({
+        period: entry.period,
+        items: [{ client: entry.client, text: entry.text }],
+      })
+    }
+  }
+  return groups
+}
+
 const groups: SkillGroup[] = [
   {
     title: 'back end',
@@ -292,21 +310,33 @@ function Home() {
                 {role.title} · {role.location}
               </div>
               <div className="tl">
-                {role.entries.map((entry, i) => (
-                  <div key={i} className="tl-item">
-                    {(entry.period || entry.client) && (
+                {groupEntries(role.entries).map((group, gi) =>
+                  group.period && group.items.length > 1 ? (
+                    <div key={gi} className="tl-group">
+                      <div className="tl-subhead">{group.period}:</div>
+                      {group.items.map((item, ii) => (
+                        <div key={ii} className="tl-item">
                       <div className="tl-head">
-                        {entry.period && (
-                          <span className="tl-period">{entry.period}</span>
+                        {item.client && <span className="tl-tag">{item.client}</span>}
+                      </div>
+                          <p className="tl-text">{item.text}</p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div key={gi} className="tl-item">
+                      <div className="tl-head">
+                        {group.period && (
+                          <span className="tl-period">{group.period}</span>
                         )}
-                        {entry.client && (
-                          <span className="tl-tag">{entry.client}</span>
+                        {group.items[0].client && (
+                          <span className="tl-tag">{group.items[0].client}</span>
                         )}
                       </div>
-                    )}
-                    <p className="tl-text">{entry.text}</p>
-                  </div>
-                ))}
+                      <p className="tl-text">{group.items[0].text}</p>
+                    </div>
+                  ),
+                )}
               </div>
             </article>
           ))}
