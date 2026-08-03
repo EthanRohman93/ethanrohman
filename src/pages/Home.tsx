@@ -17,6 +17,7 @@ import {
   SiFlyway,
   SiTerraform,
   SiGithubactions,
+  SiGit,
   SiGnubash,
   SiPytest,
   SiVite,
@@ -95,7 +96,7 @@ const groups: SkillGroup[] = [
     icon: LuBraces,
     skills: [
       { name: 'spring boot', icon: SiSpringboot, note: 'prod' },
-      { name: 'node server', icon: SiNodedotjs, note: 'prod' },
+      { name: 'node.js', icon: SiNodedotjs, note: 'prod' },
       { name: 'hapi.js', icon: SiNodedotjs },
       { name: '.net', icon: SiDotnet },
       { name: 'fastapi', icon: SiFastapi },
@@ -136,6 +137,7 @@ const groups: SkillGroup[] = [
     skills: [
       { name: 'terraform', icon: SiTerraform, note: 'prod' },
       { name: 'aws', icon: FaAws, note: 'prod' },
+      { name: 'aws cli', icon: FaAws },
       { name: 'docker', icon: SiDocker },
       { name: 'github actions', icon: SiGithubactions, note: 'prod' },
       { name: 'jenkins', icon: SiJenkins },
@@ -159,6 +161,7 @@ const groups: SkillGroup[] = [
     skills: [
       { name: 'neovim', icon: SiNeovim },
       { name: 'tmux', icon: SiTmux },
+      { name: 'git', icon: SiGit },
       { name: 'zig', icon: SiZig },
       { name: 'c', icon: SiC },
       { name: 'rust', icon: SiRust },
@@ -212,7 +215,7 @@ const roles: Role[] = [
       {
         period: 'mid 2026',
         client: 'michigan health association',
-        text: 'took an expanded role, beyond the earlier support work, rewriting the legacy asp.net application in blazor. the rewrite was initially scoped to evaluate the viability of ai tooling on a business-logic-heavy codebase, with the team later shifting to applying ai selectively as needed.',
+        text: 'took an expanded role, beyond the earlier support work, rewriting the legacy asp.net application in blazor. the rewrite was initially scoped to evaluate the viability of ai tooling on a business-logic-heavy codebase, with the team later shifting to applying ai selectively as needed. because framework knowledge was expected to come from ai assistance, the usual upfront ramp-up on libraries and frameworks was not carried out beforehand.',
       },
     ],
   },
@@ -223,7 +226,13 @@ const roles: Role[] = [
     location: 'minneapolis, mn',
     entries: [
       {
-        text: 'built a question-answering bot with sentence transformers and a custom embedding-model vector store deployed with mlflow; extended search using embedding models tuned against local elasticsearch; and contributed to pyspark pipelines in databricks and ascend.',
+        text: 'analyzed text message campaign engagement using python, pandas, and sql.',
+      },
+      {
+        text: 'built a question-answering bot using sentence transformers and a custom embedding-model vector store deployed with mlflow; extended search with embedding models tuned against local elasticsearch instances.',
+      },
+      {
+        text: 'contributed to pyspark pipelines in databricks and ascend using aws s3, github, and jenkins; presented findings to groups of up to 40 people.',
       },
     ],
   },
@@ -313,7 +322,7 @@ function Home() {
                 {groupEntries(role.entries).map((group, gi) =>
                   group.period && group.items.length > 1 ? (
                     <div key={gi} className="tl-group">
-                      <div className="tl-subhead">{group.period}:</div>
+                      <div className="tl-subhead">{group.period}</div>
                       {group.items.map((item, ii) => (
                         <div key={ii} className="tl-item">
                       <div className="tl-head">
