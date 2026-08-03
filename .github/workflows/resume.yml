@@ -3,6 +3,11 @@ name: Build Resume
 on:
   push:
     branches: [main]
+    # only run when the resume source changes. this also stops the workflow
+    # from retriggering itself, since its own commit only touches public/
+    paths:
+      - 'resume/**'
+      - '.github/workflows/resume.yml'
 
 permissions:
   contents: write
@@ -27,5 +32,6 @@ jobs:
       - name: commit updated resume
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "build resume [skip ci]"
+          # no [skip ci]: cloudflare honors it and would skip deploying the pdf
+          commit_message: "build resume"
           file_pattern: public/resume.pdf
