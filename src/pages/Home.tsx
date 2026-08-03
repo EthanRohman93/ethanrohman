@@ -50,6 +50,7 @@ import {
   LuGithub,
   LuBriefcase,
   LuBookOpen,
+  LuGraduationCap,
 } from 'react-icons/lu'
 
 type Skill = {
@@ -215,7 +216,7 @@ const roles: Role[] = [
       {
         period: 'mid 2026',
         client: 'michigan health association',
-        text: 'took an expanded role, beyond the earlier support work, rewriting the legacy asp.net application in blazor. the rewrite was initially scoped to evaluate the viability of ai tooling on a business-logic-heavy codebase, with the team later shifting to applying ai selectively as needed. because framework knowledge was expected to come from ai assistance, the usual upfront ramp-up on libraries and frameworks was not carried out beforehand.',
+        text: 'took an expanded role, beyond the earlier support work, rewriting the legacy asp.net application in blazor with c# and razor components. the rewrite was initially scoped to evaluate the viability of ai-assisted development on a business-logic-heavy codebase, with the team later shifting to applying ai selectively as needed. because framework knowledge was expected to come from ai assistance, the usual upfront ramp-up on libraries and frameworks was not carried out beforehand.',
       },
     ],
   },
@@ -366,6 +367,23 @@ function Home() {
           </div>
         </section>
       ))}
+
+      <section className="section">
+        <div className="section-header">
+          <LuGraduationCap />
+          <h2>education</h2>
+          <span className="rule" />
+        </div>
+        <article className="role">
+          <div className="role-head">
+            <h3>drake university</h3>
+            <span className="role-dates">2020 — 2024</span>
+          </div>
+          <div className="role-sub">
+            bachelor of science in computer science, minor in mathematics, gpa: 3.86 · des moines, ia
+          </div>
+        </article>
+      </section>
 
       <section className="section">
         <div className="section-header">
