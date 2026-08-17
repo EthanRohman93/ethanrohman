@@ -51,18 +51,28 @@ import {
   LuBriefcase,
   LuBookOpen,
   LuGraduationCap,
+  LuLayers,
+  LuRocket,
+  LuFlaskConical,
 } from 'react-icons/lu'
+
+type SkillTag = 'prod' | 'personal'
 
 type Skill = {
   name: string
   icon?: IconType
-  note?: string
+  tags?: SkillTag[]
 }
 
 type SkillGroup = {
   title: string
   icon: IconType
   skills: Skill[]
+}
+
+const skillTagInfo: Record<SkillTag, { icon: IconType; label: string }> = {
+  prod: { icon: LuRocket, label: 'deployed to production' },
+  personal: { icon: LuFlaskConical, label: 'used in a personal project' },
 }
 
 type Role = {
@@ -96,27 +106,27 @@ const groups: SkillGroup[] = [
     title: 'back end',
     icon: LuBraces,
     skills: [
-      { name: 'spring boot', icon: SiSpringboot, note: 'prod' },
-      { name: 'node.js', icon: SiNodedotjs, note: 'prod' },
-      { name: 'hapi.js', icon: SiNodedotjs },
-      { name: '.net', icon: SiDotnet },
+      { name: 'spring boot', icon: SiSpringboot, tags: ['prod'] },
+      { name: 'node.js', icon: SiNodedotjs, tags: ['prod'] },
+      { name: 'hapi.js', icon: SiNodedotjs, tags: ['prod'] },
+      { name: '.net', icon: SiDotnet, tags: ['prod'] },
       { name: 'fastapi', icon: SiFastapi },
-      { name: 'django', icon: SiDjango },
+      { name: 'django', icon: SiDjango, tags: ['personal'] },
     ],
   },
   {
     title: 'front end',
     icon: LuCloud,
     skills: [
-      { name: 'react', icon: SiReact, note: 'prod' },
-      { name: 'redux', icon: SiRedux },
-      { name: 'nextjs', icon: SiNextdotjs },
-      { name: 'blazor', icon: SiBlazor },
-      { name: 'typescript', icon: SiTypescript, note: 'prod' },
-      { name: 'javascript', icon: SiJavascript, note: 'prod' },
-      { name: 'css', icon: SiCss },
+      { name: 'react', icon: SiReact, tags: ['prod'] },
+      { name: 'redux', icon: SiRedux, tags: ['prod'] },
+      { name: 'nextjs', icon: SiNextdotjs, tags: ['personal'] },
+      { name: 'blazor', icon: SiBlazor, tags: ['prod'] },
+      { name: 'typescript', icon: SiTypescript, tags: ['prod'] },
+      { name: 'javascript', icon: SiJavascript, tags: ['prod'] },
+      { name: 'css', icon: SiCss, tags: ['prod'] },
       { name: 'sass', icon: SiSass },
-      { name: 'tailwind', icon: SiTailwindcss },
+      { name: 'tailwind', icon: SiTailwindcss, tags: ['prod'] },
       { name: 'html', icon: SiHtml5 },
     ],
   },
@@ -124,34 +134,34 @@ const groups: SkillGroup[] = [
     title: 'data',
     icon: LuDatabase,
     skills: [
-      { name: 'postgresql', icon: SiPostgresql },
-      { name: 'aws aurora', icon: FaAws, note: 'prod' },
-      { name: 'dynamodb', icon: FaAws },
+      { name: 'postgresql', icon: SiPostgresql, tags: ['prod', 'personal'] },
+      { name: 'aws aurora', icon: FaAws, tags: ['prod'] },
+      { name: 'dynamodb', icon: FaAws, tags: ['prod'] },
       { name: 'mongodb', icon: SiMongodb },
       { name: 'elasticsearch' },
-      { name: 'flyway', icon: SiFlyway, note: 'prod' },
+      { name: 'flyway', icon: SiFlyway, tags: ['prod'] },
     ],
   },
   {
     title: 'infrastructure & cicd',
     icon: LuServer,
     skills: [
-      { name: 'terraform', icon: SiTerraform, note: 'prod' },
-      { name: 'aws', icon: FaAws, note: 'prod' },
+      { name: 'terraform', icon: SiTerraform, tags: ['prod'] },
+      { name: 'aws', icon: FaAws, tags: ['prod'] },
       { name: 'aws cli', icon: FaAws },
       { name: 'docker', icon: SiDocker },
-      { name: 'github actions', icon: SiGithubactions, note: 'prod' },
+      { name: 'github actions', icon: SiGithubactions, tags: ['prod'] },
       { name: 'jenkins', icon: SiJenkins },
-      { name: 'bash', icon: SiGnubash, note: 'prod' },
+      { name: 'bash', icon: SiGnubash, tags: ['prod'] },
     ],
   },
   {
     title: 'testing',
     icon: LuTestTube,
     skills: [
-      { name: 'playwright', note: 'e2e + integration, prod' },
+      { name: 'playwright', tags: ['prod'] },
       { name: 'jest', icon: SiJest },
-      { name: 'vite', icon: SiVite, note: 'prod' },
+      { name: 'vite', icon: SiVite, tags: ['prod'] },
       { name: 'junit', icon: SiJunit5 },
       { name: 'pytest', icon: SiPytest },
     ],
@@ -163,9 +173,9 @@ const groups: SkillGroup[] = [
       { name: 'neovim', icon: SiNeovim },
       { name: 'tmux', icon: SiTmux },
       { name: 'git', icon: SiGit },
-      { name: 'zig', icon: SiZig },
-      { name: 'c', icon: SiC },
-      { name: 'rust', icon: SiRust },
+      { name: 'zig', icon: SiZig, tags: ['personal'] },
+      { name: 'c', icon: SiC, tags: ['personal'] },
+      { name: 'rust', icon: SiRust, tags: ['personal'] },
       { name: 'api design' },
     ],
   },
@@ -179,24 +189,14 @@ const roles: Role[] = [
     location: 'des moines, ia',
     entries: [
       {
-        period: 'late 2024',
+        period: 'mid 2026 — current',
         client: 'john deere',
-        text: 'maintained existing applications through package upgrades, improving documentation and test coverage while building business domain knowledge.',
+        text: 'delivered front-end feature work and state management for a new react and typescript data-entry-heavy application; extended the same spring boot api with s3 file management and additional database features.',
       },
       {
-        period: 'early 2025',
-        client: 'john deere',
-        text: 'delivered react and typescript feature work; rewrote an existing application to improve performance; expanded integration and end-to-end test coverage; established database management for a microservice with terraform deployment and flyway migrations.',
-      },
-      {
-        period: 'mid 2025',
-        client: 'john deere',
-        text: 'built a spring boot rest api from scratch managing dynamodb, rds, and sqs; set up full testing along with datadog metrics and visibility.',
-      },
-      {
-        period: 'late 2025',
-        client: 'john deere',
-        text: 'continued front-end feature work including major library upgrades; continued to manage infrastructure with terraform; expanded database and api usage to support data validation.',
+        period: 'mid 2026 — current',
+        client: 'michigan health association',
+        text: 'took an expanded role, beyond the earlier support work, rewriting the legacy asp.net application in blazor with c# and razor components. the rewrite was initially scoped to evaluate the viability of ai-assisted development on a business-logic-heavy codebase, with the team later shifting to applying ai selectively as needed. because framework knowledge was expected to come from ai assistance, the usual upfront ramp-up on libraries and frameworks was not carried out beforehand.',
       },
       {
         period: 'early 2026',
@@ -206,17 +206,27 @@ const roles: Role[] = [
       {
         period: 'early 2026',
         client: 'michigan health association',
-        text: 'supported a legacy asp.net application.',
+        text: 'supported a legacy asp.net application by fixing bugs and delivering enhancements to the existing system.',
       },
       {
-        period: 'mid 2026',
+        period: 'late 2025',
         client: 'john deere',
-        text: 'delivered front-end feature work and state management for a new react and typescript data-entry-heavy application; extended the same spring boot api with s3 file management and additional database features.',
+        text: 'continued front-end feature work including major library upgrades; continued to manage infrastructure with terraform; expanded database and api usage to support data validation.',
       },
       {
-        period: 'mid 2026',
-        client: 'michigan health association',
-        text: 'took an expanded role, beyond the earlier support work, rewriting the legacy asp.net application in blazor with c# and razor components. the rewrite was initially scoped to evaluate the viability of ai-assisted development on a business-logic-heavy codebase, with the team later shifting to applying ai selectively as needed. because framework knowledge was expected to come from ai assistance, the usual upfront ramp-up on libraries and frameworks was not carried out beforehand.',
+        period: 'mid 2025',
+        client: 'john deere',
+        text: 'built a spring boot rest api from scratch managing dynamodb, rds, and sqs; set up full testing along with datadog metrics and visibility.',
+      },
+      {
+        period: 'early 2025',
+        client: 'john deere',
+        text: 'delivered react and typescript feature work; rewrote an existing application to improve performance; expanded integration and end-to-end test coverage; established database management for a microservice with terraform deployment and flyway migrations.',
+      },
+      {
+        period: 'late 2024',
+        client: 'john deere',
+        text: 'maintained existing applications through package upgrades, improving documentation and test coverage while building business domain knowledge.',
       },
     ],
   },
@@ -252,7 +262,18 @@ function SkillCard({ skill }: { skill: Skill }) {
     <div className={`skill-card${Icon ? '' : ' no-icon'}`}>
       {Icon && <Icon />}
       <div className="skill-name">{skill.name}</div>
-      {skill.note && <div className="skill-note">{skill.note}</div>}
+      {skill.tags && skill.tags.length > 0 && (
+        <div className="skill-tags">
+          {skill.tags.map((tag) => {
+            const TagIcon = skillTagInfo[tag].icon
+            return (
+              <span key={tag} className="skill-tag" title={skillTagInfo[tag].label}>
+                <TagIcon />
+              </span>
+            )
+          })}
+        </div>
+      )}
     </div>
   )
 }
@@ -289,16 +310,45 @@ function Home() {
         </div>
         <div className="prose about-card">
           <p>
-            I try to collect wisdom from as many different sources as I can, but
-            I rely heavily on Jesus Christ for direction. Everything else gets
-            weighed against that.
+            I build my understanding of the world on universal truths, truths
+            that hold constant regardless of context instead of depending on
+            an assumed set of conditions. Theories can perform beautifully
+            while their suppositions hold, but their reliability diminishes
+            the moment reality contradicts those suppositions. For example,
+            Newton's laws have to be discarded when dealing with quantum
+            particles or supermassive objects such as black holes. Intuition
+            has to be grounded in universal truths for the same reason
+            induction and deduction cannot be trusted alone, both only draw
+            on the data
+            points that have already been recorded, so neither can account
+            for what those data points leave out. I lean on intuition
+            instead, in the sense Edgar Allan Poe used the word: an
+            imaginative leap in which induction and deduction happen at once,
+            rapidly, closing the gap that incomplete data alone leaves open.
           </p>
           <p>
-            While I program, I usually have lectures on religion, philosophy,
-            and published research papers running in the background instead of
-            music, and I read whenever I get the chance. When I am not handling
-            daily obligations or taking care of my health, almost every second
-            goes into programming.
+            I bring that same discipline to programming. Before I trust my
+            intuition, I read the documentation and API references closely,
+            because that is the closest thing to a recorded truth for the
+            system I am building against, what a library guarantees, what an
+            API expects, what a framework assumes, instead of what I assume
+            it does. Some of those constraints never change no matter the
+            stack, memory has to be allocated and released, networks drop and
+            retry, state has to live somewhere, and they hold underneath
+            whatever changes on top of them. Programming style is intuition,
+            and intuition only works when it operates inside real constraints
+            instead of assumed ones.
+          </p>
+          <p>
+            Finding the right abstraction works the same way. It is an
+            intuitive leap that takes a set of constraints, whether from
+            documentation, dependencies, or the libraries in use, and turns
+            them into a structure that keeps working once those constraints
+            are actually tested. Finding a universal truth follows the
+            identical process, stripping away the suppositions a law depends
+            on until what is left still holds, and understanding a codebase
+            comes down to the same thing, finding the abstraction that the
+            real constraints, not the assumed ones, will actually support.
           </p>
         </div>
       </section>
@@ -350,6 +400,25 @@ function Home() {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="section-header">
+          <LuLayers />
+          <h2>skills</h2>
+          <span className="rule" />
+        </div>
+        <div className="skills-legend">
+          {(Object.keys(skillTagInfo) as SkillTag[]).map((tag) => {
+            const { icon: TagIcon, label } = skillTagInfo[tag]
+            return (
+              <span key={tag} className="skills-legend-item">
+                <TagIcon className="skills-legend-icon" />
+                {label}
+              </span>
+            )
+          })}
         </div>
       </section>
 

@@ -224,9 +224,41 @@ main {
   text-shadow: 0 0 18px rgba(167, 139, 250, 0.35);
 }
 
-.skill-card .skill-note {
-  font-size: 0.7rem;
+.skill-card .skill-tags {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: -0.2rem;
+}
+
+.skill-card .skill-tag {
+  display: inline-flex;
+}
+
+.skill-card .skill-tag svg {
+  font-size: 0.85rem;
   color: var(--text-dim);
+  filter: none;
+}
+
+.skills-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.skills-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.skills-legend-icon {
+  font-size: 0.95rem;
+  color: var(--accent-bright);
 }
 
 /* ---------- prose (about) ---------- */
