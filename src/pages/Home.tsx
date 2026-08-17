@@ -179,7 +179,7 @@ const groups: SkillGroup[] = [
       { name: 'zig', icon: SiZig, tags: ['personal'] },
       { name: 'c', icon: SiC, tags: ['personal'] },
       { name: 'rust', icon: SiRust, tags: ['personal'] },
-      { name: 'api design', icon: LuPlug },
+      { name: 'api design', icon: LuPlug, tags: ['prod', 'personal'] },
     ],
   },
 ]
@@ -460,7 +460,7 @@ function Home() {
       <section className="section">
         <div className="section-header">
           <LuGamepad2 />
-          <h2>extra interests</h2>
+          <h2>personal interests</h2>
           <span className="rule" />
         </div>
         <div className="interests">
