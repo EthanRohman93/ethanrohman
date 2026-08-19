@@ -47,10 +47,12 @@ import {
   LuDumbbell,
   LuCookingPot,
   LuGamepad2,
+  LuBookHeadphones,
   LuDownload,
   LuGithub,
   LuBriefcase,
   LuBookOpen,
+  LuBrain,
   LuGraduationCap,
   LuLayers,
   LuRocket,
@@ -74,8 +76,8 @@ type SkillGroup = {
 }
 
 const skillTagInfo: Record<SkillTag, { icon: IconType; label: string }> = {
-  prod: { icon: LuRocket, label: 'deployed to production' },
-  personal: { icon: LuFlaskConical, label: 'used in a personal project' },
+  prod: { icon: LuRocket, label: 'Deployed to production' },
+  personal: { icon: LuFlaskConical, label: 'Used in a personal project' },
 }
 
 type Role = {
@@ -106,80 +108,80 @@ function groupEntries(entries: Role['entries']): TimelineGroup[] {
 
 const groups: SkillGroup[] = [
   {
-    title: 'back end',
+    title: 'Back End',
     icon: LuBraces,
     skills: [
-      { name: 'spring boot', icon: SiSpringboot, tags: ['prod'] },
-      { name: 'node.js', icon: SiNodedotjs, tags: ['prod'] },
-      { name: 'hapi.js', icon: SiNodedotjs, tags: ['prod'] },
-      { name: '.net', icon: SiDotnet, tags: ['prod'] },
-      { name: 'fastapi', icon: SiFastapi, tags: ['personal'] },
-      { name: 'django', icon: SiDjango, tags: ['personal'] },
+      { name: 'Spring Boot', icon: SiSpringboot, tags: ['prod'] },
+      { name: 'Node.js', icon: SiNodedotjs, tags: ['prod'] },
+      { name: 'Hapi.js', icon: SiNodedotjs, tags: ['prod'] },
+      { name: '.NET', icon: SiDotnet, tags: ['prod'] },
+      { name: 'FastAPI', icon: SiFastapi, tags: ['personal'] },
+      { name: 'Django', icon: SiDjango, tags: ['personal'] },
     ],
   },
   {
-    title: 'front end',
+    title: 'Front End',
     icon: LuCloud,
     skills: [
-      { name: 'react', icon: SiReact, tags: ['prod', 'personal'] },
-      { name: 'redux', icon: SiRedux, tags: ['prod'] },
-      { name: 'nextjs', icon: SiNextdotjs, tags: ['personal'] },
-      { name: 'blazor', icon: SiBlazor, tags: ['prod'] },
-      { name: 'typescript', icon: SiTypescript, tags: ['prod', 'personal'] },
-      { name: 'javascript', icon: SiJavascript, tags: ['prod', 'personal'] },
-      { name: 'css', icon: SiCss, tags: ['prod'] },
-      { name: 'sass', icon: SiSass, tags: ['prod'] },
-      { name: 'tailwind', icon: SiTailwindcss, tags: ['prod', 'personal'] },
-      { name: 'html', icon: SiHtml5, tags: ['personal'] },
+      { name: 'React', icon: SiReact, tags: ['prod', 'personal'] },
+      { name: 'Redux', icon: SiRedux, tags: ['prod'] },
+      { name: 'Next.js', icon: SiNextdotjs, tags: ['personal'] },
+      { name: 'Blazor', icon: SiBlazor, tags: ['prod'] },
+      { name: 'TypeScript', icon: SiTypescript, tags: ['prod', 'personal'] },
+      { name: 'JavaScript', icon: SiJavascript, tags: ['prod', 'personal'] },
+      { name: 'CSS', icon: SiCss, tags: ['prod'] },
+      { name: 'Sass', icon: SiSass, tags: ['prod'] },
+      { name: 'Tailwind', icon: SiTailwindcss, tags: ['prod', 'personal'] },
+      { name: 'HTML', icon: SiHtml5, tags: ['personal'] },
     ],
   },
   {
-    title: 'data',
+    title: 'Data',
     icon: LuDatabase,
     skills: [
-      { name: 'postgresql', icon: SiPostgresql, tags: ['prod', 'personal'] },
-      { name: 'aws aurora', icon: FaAws, tags: ['prod'] },
-      { name: 'dynamodb', icon: FaAws, tags: ['prod'] },
-      { name: 'mongodb', icon: SiMongodb, tags: ['personal'] },
-      { name: 'elasticsearch', icon: SiElasticsearch, tags: ['prod'] },
-      { name: 'flyway', icon: SiFlyway, tags: ['prod'] },
+      { name: 'PostgreSQL', icon: SiPostgresql, tags: ['prod', 'personal'] },
+      { name: 'AWS Aurora', icon: FaAws, tags: ['prod'] },
+      { name: 'DynamoDB', icon: FaAws, tags: ['prod'] },
+      { name: 'MongoDB', icon: SiMongodb, tags: ['personal'] },
+      { name: 'Elasticsearch', icon: SiElasticsearch, tags: ['prod'] },
+      { name: 'Flyway', icon: SiFlyway, tags: ['prod'] },
     ],
   },
   {
-    title: 'infrastructure & cicd',
+    title: 'Infrastructure & CI/CD',
     icon: LuServer,
     skills: [
-      { name: 'terraform', icon: SiTerraform, tags: ['prod', 'personal'] },
-      { name: 'aws', icon: FaAws, tags: ['prod', 'personal'] },
-      { name: 'aws cli', icon: FaAws, tags: ['personal'] },
-      { name: 'docker', icon: SiDocker, tags: ['personal'] },
-      { name: 'github actions', icon: SiGithubactions, tags: ['prod', 'personal'] },
-      { name: 'jenkins', icon: SiJenkins, tags: ['prod'] },
-      { name: 'bash', icon: SiGnubash, tags: ['prod'] },
+      { name: 'Terraform', icon: SiTerraform, tags: ['prod', 'personal'] },
+      { name: 'AWS', icon: FaAws, tags: ['prod', 'personal'] },
+      { name: 'AWS CLI', icon: FaAws, tags: ['personal'] },
+      { name: 'Docker', icon: SiDocker, tags: ['personal'] },
+      { name: 'GitHub Actions', icon: SiGithubactions, tags: ['prod', 'personal'] },
+      { name: 'Jenkins', icon: SiJenkins, tags: ['prod'] },
+      { name: 'Bash', icon: SiGnubash, tags: ['prod'] },
     ],
   },
   {
-    title: 'testing',
+    title: 'Testing',
     icon: LuTestTube,
     skills: [
-      { name: 'playwright', icon: LuDrama, tags: ['prod'] },
-      { name: 'jest', icon: SiJest, tags: ['prod'] },
-      { name: 'vite', icon: SiVite, tags: ['prod'] },
-      { name: 'junit', icon: SiJunit5, tags: ['prod'] },
+      { name: 'Playwright', icon: LuDrama, tags: ['prod'] },
+      { name: 'Jest', icon: SiJest, tags: ['prod'] },
+      { name: 'Vite', icon: SiVite, tags: ['prod'] },
+      { name: 'JUnit', icon: SiJunit5, tags: ['prod'] },
       { name: 'pytest', icon: SiPytest, tags: ['personal'] },
     ],
   },
   {
-    title: 'tools & interests',
+    title: 'Tools & Interests',
     icon: LuGitBranch,
     skills: [
-      { name: 'neovim', icon: SiNeovim, tags: ['personal'] },
+      { name: 'Neovim', icon: SiNeovim, tags: ['personal'] },
       { name: 'tmux', icon: SiTmux, tags: ['personal'] },
-      { name: 'git', icon: SiGit, tags: ['prod', 'personal'] },
-      { name: 'zig', icon: SiZig, tags: ['personal'] },
-      { name: 'c', icon: SiC, tags: ['personal'] },
-      { name: 'rust', icon: SiRust, tags: ['personal'] },
-      { name: 'api design', icon: LuPlug, tags: ['prod', 'personal'] },
+      { name: 'Git', icon: SiGit, tags: ['prod', 'personal'] },
+      { name: 'Zig', icon: SiZig, tags: ['personal'] },
+      { name: 'C', icon: SiC, tags: ['personal'] },
+      { name: 'Rust', icon: SiRust, tags: ['personal'] },
+      { name: 'API Design', icon: LuPlug, tags: ['prod', 'personal'] },
     ],
   },
 ]
@@ -187,66 +189,66 @@ const groups: SkillGroup[] = [
 const roles: Role[] = [
   {
     org: 'QCI (Quality Consulting Inc.)',
-    title: 'software developer',
-    dates: 'july 2024 — current',
-    location: 'des moines, ia',
+    title: 'Software Developer',
+    dates: 'July 2024 — Current',
+    location: 'Des Moines, IA',
     entries: [
       {
-        period: 'mid 2026 — current',
-        client: 'john deere',
-        text: 'delivered front-end feature work and state management for a new react and typescript data-entry-heavy application; extended the same spring boot api with s3 file management and additional database features.',
+        period: 'Mid 2026 — Current',
+        client: 'John Deere',
+        text: 'Delivered front-end feature work and state management for a new React and TypeScript data-entry-heavy application; extended the same Spring Boot API with S3 file management and additional database features.',
       },
       {
-        period: 'mid 2026 — current',
-        client: 'michigan health association',
-        text: 'took an expanded role, beyond the earlier support work, rewriting the legacy asp.net application in blazor with c# and razor components. the rewrite was initially scoped to evaluate the viability of ai-assisted development on a business-logic-heavy codebase, with the team later shifting to applying ai selectively as needed. because framework knowledge was expected to come from ai assistance, the usual upfront ramp-up on libraries and frameworks was not carried out beforehand.',
+        period: 'Mid 2026 — Current',
+        client: 'Michigan Health Association',
+        text: 'Took on an expanded role rewriting the legacy ASP.NET application in Blazor with C# and Razor components, initially scoped to evaluate AI-assisted development on a business-logic-heavy codebase before the team shifted to applying AI more selectively; skipped the usual upfront framework ramp-up since that knowledge was expected to come through AI assistance instead.',
       },
       {
-        period: 'early 2026',
-        client: 'john deere',
-        text: 'integrated datadog metrics and observability alongside package updates; delivered micro-frontend feature work supporting bulk operations; added cdn caching to website infrastructure.',
+        period: 'Early 2026',
+        client: 'John Deere',
+        text: 'Integrated Datadog metrics and observability alongside package updates; delivered micro-frontend feature work supporting bulk operations; added CDN caching to website infrastructure.',
       },
       {
-        period: 'early 2026',
-        client: 'michigan health association',
-        text: 'supported a legacy asp.net application by fixing bugs and delivering enhancements to the existing system.',
+        period: 'Early 2026',
+        client: 'Michigan Health Association',
+        text: 'Supported a legacy ASP.NET application by fixing bugs and delivering enhancements to the existing system.',
       },
       {
-        period: 'late 2025',
-        client: 'john deere',
-        text: 'continued front-end feature work including major library upgrades; continued to manage infrastructure with terraform; expanded database and api usage to support data validation.',
+        period: 'Late 2025',
+        client: 'John Deere',
+        text: 'Continued front-end feature work including major library upgrades; continued to manage infrastructure with Terraform; expanded database and API usage to support data validation.',
       },
       {
-        period: 'mid 2025',
-        client: 'john deere',
-        text: 'built a spring boot rest api from scratch managing dynamodb, rds, and sqs; set up full testing along with datadog metrics and visibility.',
+        period: 'Mid 2025',
+        client: 'John Deere',
+        text: 'Built a Spring Boot REST API from scratch managing DynamoDB, RDS, and SQS; set up full testing along with Datadog metrics and visibility.',
       },
       {
-        period: 'early 2025',
-        client: 'john deere',
-        text: 'delivered react and typescript feature work; rewrote an existing application to improve performance; expanded integration and end-to-end test coverage; established database management for a microservice with terraform deployment and flyway migrations.',
+        period: 'Early 2025',
+        client: 'John Deere',
+        text: 'Delivered React and TypeScript feature work; rewrote an existing application to improve performance; expanded integration and end-to-end test coverage; established database management for a microservice with Terraform deployment and Flyway migrations.',
       },
       {
-        period: 'late 2024',
-        client: 'john deere',
-        text: 'maintained existing applications through package upgrades, improving documentation and test coverage while building business domain knowledge.',
+        period: 'Late 2024',
+        client: 'John Deere',
+        text: 'Maintained existing applications through package upgrades, improving documentation and test coverage while building business domain knowledge.',
       },
     ],
   },
   {
     org: 'UnitedHealth Group (Surest)',
-    title: 'data science intern',
-    dates: 'may 2022 — may 2024',
-    location: 'minneapolis, mn',
+    title: 'Data Science Intern',
+    dates: 'May 2022 — May 2024',
+    location: 'Minneapolis, MN',
     entries: [
       {
-        text: 'analyzed text message campaign engagement using python, pandas, and sql.',
+        text: 'Analyzed text message campaign engagement using Python, Pandas, and SQL.',
       },
       {
-        text: 'built a question-answering bot using sentence transformers and a custom embedding-model vector store deployed with mlflow; extended search with embedding models tuned against local elasticsearch instances.',
+        text: 'Built a question-answering bot using sentence transformers and a custom embedding-model vector store deployed with MLflow; extended search with embedding models tuned against local Elasticsearch instances.',
       },
       {
-        text: 'contributed to pyspark pipelines in databricks and ascend using aws s3, github, and jenkins; presented findings to groups of up to 40 people.',
+        text: 'Contributed to PySpark pipelines in Databricks and Ascend using AWS S3, GitHub, and Jenkins; presented findings to groups of up to 40 people.',
       },
     ],
   },
@@ -254,6 +256,7 @@ const roles: Role[] = [
 
 const interests: { label: string; icon: IconType }[] = [
   { label: 'basketball', icon: LuVolleyball },
+  { label: 'lectures & talks', icon: LuBookHeadphones },
   { label: 'lifting weights', icon: LuDumbbell },
   { label: 'cooking', icon: LuCookingPot },
   { label: 'video games', icon: LuGamepad2 },
@@ -285,14 +288,14 @@ function Home() {
   return (
     <>
       <header className="hero">
-        <div className="hero-badge">full stack software developer</div>
-        <h1>ethan rohman</h1>
+        <div className="hero-badge">Full-Stack Software Developer</div>
+        <h1>Ethan Rohman</h1>
         <p className="tagline">
-          building fast apis, clean front ends, and infrastructure that lasts.
+          Building fast APIs, clean front ends, and infrastructure that lasts.
         </p>
         <div className="hero-actions">
           <a className="btn btn-primary" href="/resume.pdf" download="ethanrohman_resume.pdf">
-            <LuDownload /> download resume
+            <LuDownload /> Download Resume
           </a>
           <a
             className="btn btn-ghost"
@@ -300,7 +303,7 @@ function Home() {
             target="_blank"
             rel="noreferrer"
           >
-            <LuGithub /> github
+            <LuGithub /> GitHub
           </a>
         </div>
       </header>
@@ -308,7 +311,38 @@ function Home() {
       <section className="section">
         <div className="section-header">
           <LuBookOpen />
-          <h2>about</h2>
+          <h2>About</h2>
+          <span className="rule" />
+        </div>
+        <div className="prose about-card">
+          <p>
+            My expertise is on the backend: building APIs, shaping data
+            models, and keeping the infrastructure underneath them running
+            cleanly. It's also knowing the trade-offs between solutions for
+            a given problem and implementing each one as intended. This
+            discipline helps keep lines of code down, bugs rare, and
+            systems maintainable. For John Deere, I've taken early
+            proof-of-concept work and turned it into production-grade APIs
+            and backend systems. For Michigan Health Association, I've been
+            rewriting the whole legacy application, not just the backend,
+            onto modern infrastructure and libraries after years of
+            incremental changes across a rotation of consulting firms.
+            Taking on both of those projects taught me more about building
+            durable software than sticking to one comfortable stack ever
+            could. I love learning about software broadly, and if I had
+            more time I'd like to explore a low-level language. Work,
+            family, friends, and daily obligations don't leave much free
+            time, so I listen to lectures and interviews that might contain
+            valuable wisdom about tech, philosophy, or the world, hoping to
+            get to Dante, Homer, and Plato soon.
+          </p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="section-header">
+          <LuBrain />
+          <h2>Philosophy and Approach</h2>
           <span className="rule" />
         </div>
         <div className="prose about-card">
@@ -359,7 +393,7 @@ function Home() {
       <section className="section">
         <div className="section-header">
           <LuBriefcase />
-          <h2>experience</h2>
+          <h2>Experience</h2>
           <span className="rule" />
         </div>
         <div className="timeline">
@@ -409,7 +443,7 @@ function Home() {
       <section className="section">
         <div className="section-header">
           <LuLayers />
-          <h2>skills</h2>
+          <h2>Skills</h2>
           <span className="rule" />
         </div>
         <div className="skills-legend">
@@ -443,16 +477,16 @@ function Home() {
       <section className="section">
         <div className="section-header">
           <LuGraduationCap />
-          <h2>education</h2>
+          <h2>Education</h2>
           <span className="rule" />
         </div>
         <article className="role">
           <div className="role-head">
-            <h3>drake university</h3>
+            <h3>Drake University</h3>
             <span className="role-dates">2020 — 2024</span>
           </div>
           <div className="role-sub">
-            bachelor of science in computer science, minor in mathematics, gpa: 3.86 · des moines, ia
+            Bachelor of Science in Computer Science, Minor in Mathematics, GPA: 3.86 · Des Moines, IA
           </div>
         </article>
       </section>
@@ -460,7 +494,7 @@ function Home() {
       <section className="section">
         <div className="section-header">
           <LuGamepad2 />
-          <h2>personal interests</h2>
+          <h2>Personal Interests</h2>
           <span className="rule" />
         </div>
         <div className="interests">

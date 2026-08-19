@@ -15,8 +15,8 @@ function Layout() {
       </main>
       <footer>
         <nav>
-          <NavLink to="/">home</NavLink>
-          <a href="/resume.pdf" download="ethanrohman_resume.pdf">download resume</a>
+          <NavLink to="/">Home</NavLink>
+          <a href="/resume.pdf" download="ethanrohman_resume.pdf">Download Resume</a>
         </nav>
         <p>&copy; 2025 Ethan Rohman</p>
       </footer>
