@@ -189,7 +189,7 @@ const groups: SkillGroup[] = [
 const roles: Role[] = [
   {
     org: 'QCI (Quality Consulting Inc.)',
-    title: 'Software Developer',
+    title: 'Senior Full Stack Developer',
     dates: 'July 2024 — Current',
     location: 'Des Moines, IA',
     entries: [
@@ -288,7 +288,7 @@ function Home() {
   return (
     <>
       <header className="hero">
-        <div className="hero-badge">Full-Stack Software Developer</div>
+        <div className="hero-badge">Senior Full Stack Developer</div>
         <h1>Ethan Rohman</h1>
         <p className="tagline">
           Building fast APIs, clean front ends, and infrastructure that lasts.

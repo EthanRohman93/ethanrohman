@@ -12,6 +12,14 @@ dist
 dist-ssr
 *.local
 
+# LaTeX build artifacts
+*.aux
+*.out
+
+# Cover letter (kept private)
+resume/cover-letter.tex
+public/cover-letter.pdf
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
